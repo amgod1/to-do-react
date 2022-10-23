@@ -6,7 +6,7 @@ import ToDoList from './components/ToDoList';
 
 function App() {
 
-  let initialTodos = (localStorage.getItem('todos') === undefined) ? [] : JSON.parse(localStorage.getItem('todos'))
+  let initialTodos = (localStorage?.getItem('todos') === null) ? [] : JSON.parse(localStorage.getItem('todos'))
 
   const [inputText, setInputText] = useState('')
   const [todos, setTodos] = useState(initialTodos)
@@ -18,6 +18,7 @@ function App() {
 
   return (
     <div className="App">
+      
       <Header />
       <Form 
         inputText={inputText}
@@ -30,7 +31,7 @@ function App() {
         todos={todos}
         setTodos={setTodos}
         status={status}
-      />
+      /> 
     </div>
   );
 }
